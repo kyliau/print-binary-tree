@@ -1,0 +1,12 @@
+{
+  "name": "print-binary-tree",
+  "version": "1.0.0",
+  "description": "Pretty print binary tree in ASCII",
+  "main": "index.js",
+  "author": "Keen <kyliau@umich.edu>",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^2.8.3"
+  },
+  "dependencies": {}
+}
