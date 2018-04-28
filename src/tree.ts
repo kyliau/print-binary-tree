@@ -1,4 +1,4 @@
-interface Tree {
+export interface Tree {
     value: number;
     left: Tree|null;
     right: Tree|null;
@@ -170,7 +170,7 @@ function computeRightProfile(node: AsciiNode|null, x: number, y: number) {
     computeRightProfile(node.right, x + node.edgeLength + 1, y + node.edgeLength + 1);
 }
 
-function printAsciiTree(t: Tree|null): string {
+export function printAsciiTree(t: Tree|null): string {
     if (!t) {
         return "";
     }
@@ -195,34 +195,3 @@ function printAsciiTree(t: Tree|null): string {
     }
     return str.join("");
 }
-
-function makeNode(value: number): Tree {
-    return {
-        value,
-        left: null,
-        right: null,
-    };
-}
-
-function main() {
-    const t: Tree = {
-        value: 1,
-        left : {
-            value: 2,
-            left: null,
-            right: makeNode(7),
-        },
-        right : {
-            value: 3,
-            right: null,
-            left: {
-                value: 4,
-                left: makeNode(5),
-                right: makeNode(6),
-            },
-        },
-    };
-    console.log(printAsciiTree(t));
-}
-
-main();
