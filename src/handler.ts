@@ -1,7 +1,7 @@
 import {Tree, printAsciiTree} from './tree';
 
+console.log("HEllo WORLD");
 document.addEventListener("DOMContentLoaded", function(event) {
-  console.log("HEllo WORLD");
   const button = document.getElementsByTagName("button")[0];
   const input  = document.getElementById("input")!;
   const output = document.getElementById("output")!;

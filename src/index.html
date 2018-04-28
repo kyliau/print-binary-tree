@@ -3,22 +3,14 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-
   <title>Print Binary Tree</title>
   <meta name="description" content="Pretty print binary tree in ASCII">
   <meta name="author" content="Keen">
-
-  <!--
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
-  -->
-  <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-  <![endif]-->
 </head>
 
 <body>
   <div>
-    <div style="width:600px; height:600px; float:left; margin:10px">
+    <div style="width:600px; height:300px; display:inline-block; margin:10px">
       <textarea id="input" style="width:100%; height:100%; font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace">
 {
   "value": 1,
@@ -35,11 +27,13 @@
 }
       </textarea>
     </div>
-    <div id="output" style="width:600px; height:600px; float:left; margin:10px">
+    <div style="width:600px; height:300px; display:inline-block; margin:10px">
+      <textarea id="output" readonly="true" style="width:100%; height:100%; font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New, monospace">
+      </textarea>
     </div>
-  </div>
-  <div>
-    <button>Draw</button>
+    <div>
+      <button>Draw</button>
+    </div>
   </div>
   <script src="../dist/require.js"></script>
   <script src="../dist/main.js"></script>
