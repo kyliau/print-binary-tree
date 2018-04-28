@@ -14,18 +14,17 @@ interface AsciiNode {
 }
 
 const MAX_HEIGHT = 100;
-const GAP = 0;
 const lProfile: number[] = [];
 const rProfile: number[] = [];
 let printNext = 0;
 
-function buildAsciiTreeRecursive(t: Tree|null): AsciiNode|null {
+function buildAsciiTree(t: Tree|null) {
     if (!t) {
         return null;
     }
     const node: AsciiNode = {
-        left: buildAsciiTreeRecursive(t.left),
-        right: buildAsciiTreeRecursive(t.right),
+        left: buildAsciiTree(t.left),
+        right: buildAsciiTree(t.right),
         edgeLength : 0,
         height: 0,
         parentDir: 0,
@@ -37,15 +36,6 @@ function buildAsciiTreeRecursive(t: Tree|null): AsciiNode|null {
     if (node.right) {
         node.right.parentDir = 1;
     }
-    return node;
-}
-
-function buildAsciiTree(t: Tree|null) {
-    if (!t) {
-        return null;
-    }
-    const node: AsciiNode = buildAsciiTreeRecursive(t)!;
-    node.parentDir = 0;
     return node;
 }
 
@@ -80,7 +70,9 @@ function computeEdgeLengths(node: AsciiNode|null) {
         } else {
             minHeight = 0;
         }
+        // TODO(kyliau): Figure out how to customize this
         let delta = 4;
+        const GAP = 0;
         for (let i = 0; i < minHeight; ++i) {
             delta = Math.max(delta, GAP + 1 + rProfile[i] - lProfile[i]);
         }
@@ -177,6 +169,7 @@ export function printAsciiTree(t: Tree|null): string {
     let str = [];
     const parentRoot: AsciiNode = buildAsciiTree(t)!;
     computeEdgeLengths(parentRoot);
+    // lProfile.fill(Infinity, 0, parentRoot.height);
     for (let i = 0; i < parentRoot.height && i < MAX_HEIGHT; ++i) {
         lProfile[i] = Infinity;
     }
@@ -185,6 +178,7 @@ export function printAsciiTree(t: Tree|null): string {
     for (let i = 0; i < parentRoot.height && i < MAX_HEIGHT; ++i) {
         xMin = Math.min(xMin, lProfile[i]);
     }
+    // const xMin = Math.min(0, ...lProfile);
     for (let i = 0; i < parentRoot.height; ++i) {
         printNext = 0;
         printLevel(parentRoot, -xMin, i, str);
