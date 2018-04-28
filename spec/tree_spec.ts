@@ -8,6 +8,7 @@ describe("Binary Tree", () => {
   readdirSync(SPEC_DIR).forEach((file: string) => {
     if (extname(file) === ".json") {
       const spec = basename(file, ".json");
+      // Dynamically generate the test cases
       it(`should print ${spec}`, () => {
         const jsonFile = join(SPEC_DIR, file);
         const input = JSON.parse(readFileSync(jsonFile, "utf8"));
