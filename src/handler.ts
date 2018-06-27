@@ -1,13 +1,9 @@
 import {Tree, printAsciiTree} from './tree';
 
-console.log("HEllo WORLD");
-document.addEventListener("DOMContentLoaded", function(event) {
+document.addEventListener("DOMContentLoaded", () => {
   const button = document.getElementsByTagName("button")[0];
   const input  = document.getElementById("input")!;
   const output = document.getElementById("output")!;
-  console.log(button);
-  console.log(input);
-  console.log(output);
   button.addEventListener("click", () => {
     try {
       const inputData = JSON.parse(input.textContent!) as Tree;
@@ -18,5 +14,4 @@ document.addEventListener("DOMContentLoaded", function(event) {
       console.log(error);
     }
   });
-
 });

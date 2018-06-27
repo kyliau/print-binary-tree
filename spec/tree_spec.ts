@@ -1,4 +1,4 @@
-import { Tree, printAsciiTree } from "../src/tree";
+import { printAsciiTree } from "../src/tree";
 import "jasmine";
 import { readdirSync, readFileSync } from "fs";
 import { join, basename, extname } from "path";
